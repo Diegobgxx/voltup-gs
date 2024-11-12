@@ -4,10 +4,10 @@ namespace interfaces
 {
     public interface IChargingStationBusiness
     {
-        List<ChargingStationModel> GetChargingStations();
-        ChargingStationModel GetChargingStationById(string id);
-        ChargingStationModel CreateChargingStation(ChargingStationModel chargingStation);
-        ChargingStationModel UpdateChargingStation(string id, ChargingStationModel chargingStation);
-        void DeleteChargingStation(string id);
+        Task<List<ChargingStationModel>> GetChargingStationsAsync();
+        Task<ChargingStationModel> GetChargingStationByIdAsync(string id);
+        Task<ChargingStationModel> CreateChargingStationAsync(ChargingStationModel chargingStation);
+        Task<ChargingStationModel> UpdateChargingStationAsync(string id, ChargingStationModel chargingStation);
+        Task DeleteChargingStationAsync(string id);
     }
 }

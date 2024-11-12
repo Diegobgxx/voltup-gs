@@ -4,10 +4,10 @@ namespace interfaces
 {
     public interface IUserBusiness
     {
-        List<UserModel> GetUsers();
-        UserModel GetUserById(string id);
-        UserModel CreateUser(UserModel user);
-        UserModel UpdateUser(string id, UserModel user);
-        void DeleteUser(string id);
+        Task<List<UserModel>> GetUsersAsync();
+        Task<UserModel> GetUserByIdAsync(string id);
+        Task<UserModel> CreateUserAsync(UserModel user);
+        Task<UserModel> UpdateUserAsync(string id, UserModel user);
+        Task DeleteUserAsync(string id);
     }
 }

@@ -3,7 +3,7 @@ using interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.OpenApi.Models;
 using System.Reflection;
-using webapi_swagger.Settings;
+using repositories.Settings;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -55,14 +55,7 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
-
-    app.UseSwaggerUI(c =>
-    {
-        c.SwaggerEndpoint("/swagger/v1/swagger.json", "Minha API v1");
-
-        c.InjectStylesheet("/swagger-ui/custom.css");
-        c.InjectJavascript("/swagger-ui/custom.js");
-    });
+    app.UseSwaggerUI();
 }
 
 app.UseHttpsRedirection();

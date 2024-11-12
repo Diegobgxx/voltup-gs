@@ -1,16 +1,19 @@
 ﻿using interfaces;
+using Microsoft.Extensions.Options;
 using models;
 using repositories;
-
+using repositories.Settings;
 namespace business
 {
     public class UserBusiness : IUserBusiness
     {
         private readonly UserRepository _userRepository;
 
-        public UserBusiness(UserRepository userRepository)
+        public UserBusiness(IOptions<MongoDBSettings> mongoDbSettings)
         {
-            _userRepository = userRepository;
+            var settings = mongoDbSettings.Value;
+            _userRepository = new UserRepository(settings.ConnectionString!, settings.DatabaseName!,
+                settings.CollectionName!);
         }
 
         public async Task<List<UserModel>> GetUsersAsync()
@@ -25,24 +28,16 @@ namespace business
 
         public async Task<UserModel> CreateUserAsync(UserModel user)
         {
-            // Implement any validation or pre-processing logic here (optional)
-
             await _userRepository.CreateUserAsync(user);
-
-            // Additional logic after user creation (optional)
-
+            
             return user;
         }
 
         public async Task<UserModel> UpdateUserAsync(string id, UserModel user)
         {
-            // Implement any validation or pre-processing logic here (optional)
-
-            user.Id = id; // Ensure the ID matches the update target
+            user.Id = id;
             await _userRepository.UpdateUserAsync(id, user);
-
-            // Additional logic after user update (optional)
-
+            
             return user;
         }
 

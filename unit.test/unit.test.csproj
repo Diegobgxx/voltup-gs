@@ -24,7 +24,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\webapi-swagger\webapi-swagger.csproj" />
+    <ProjectReference Include="..\webapi\webapi.csproj" />
   </ItemGroup>
 
 </Project>

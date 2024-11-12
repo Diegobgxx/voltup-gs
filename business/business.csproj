@@ -9,6 +9,7 @@
   <ItemGroup>
     <ProjectReference Include="..\interfaces\interfaces.csproj" />
     <ProjectReference Include="..\models\models.csproj" />
+    <ProjectReference Include="..\repositories\repositories.csproj" />
   </ItemGroup>
 
 </Project>
