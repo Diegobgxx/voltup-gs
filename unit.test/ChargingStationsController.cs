@@ -21,7 +21,7 @@ namespace unit.test
         public async Task GetChargingStations_ReturnsOk_WithChargingStationList()
         {
             // Arrange
-            var chargingStations = new List<ChargingStationModel> { new ChargingStationModel { Id = "1", Location = "São Paulo" } };
+            var chargingStations = new List<ChargingStationModel> { new ChargingStationModel { Id = "1", Endereco = "São Paulo" } };
             _chargingStationBusinessMock.Setup(b => b.GetChargingStationsAsync()).ReturnsAsync(chargingStations);
 
             // Act
